@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="ice">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>پنل ادمین · Himalaya CS2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Vazirmatn:wght@400;700&family=Lalezar&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+  <div class="stars"></div>
+  <canvas id="bg"></canvas>
+
+  <nav>
+    <div class="logo">HIMALAYA · ADMIN</div>
+    <div class="tools">
+      <span class="dot ice" data-theme-set="ice"></span><span class="dot sunset" data-theme-set="sunset"></span><span class="dot matrix" data-theme-set="matrix"></span>
+      <a class="btn ghost small" href="index.html">← سایت اصلی</a>
+      <button class="btn ghost small" id="logoutBtn" hidden>خروج</button>
+    </div>
+  </nav>
+
+  <div class="admin-wrap">
+    <form class="card login-card" id="loginForm">
+      <div class="orb"><i></i><i></i><i></i><b></b></div>
+      <h2>ورود ادمین</h2>
+      <input id="user" placeholder="نام کاربری" autocomplete="username" required>
+      <input id="pass" type="password" placeholder="رمز عبور" autocomplete="current-password" required>
+      <div class="err" id="err"></div>
+      <button class="btn" id="loginBtn" type="submit">ورود</button>
+    </form>
+
+    <div id="panel" hidden>
+      <div class="stats">
+        <div class="card stat"><b id="sAll">0</b><span>کل ثبت نام‌ها</span></div>
+        <div class="card stat"><b id="sPending">0</b><span>در انتظار تایید</span></div>
+        <div class="card stat"><b id="sApproved">0</b><span>تایید شده</span></div>
+        <div class="card stat"><b id="sRejected">0</b><span>رد شده</span></div>
+        <div class="card stat"><b id="sMsg">0</b><span>پیام‌های خوانده نشده</span></div>
+      </div>
+
+      <div class="toolbar">
+        <button class="btn small active" data-tab="registrations">ثبت نام‌ها</button>
+        <button class="btn small" data-tab="messages">پیام‌ها</button>
+        <span class="sp"></span>
+        <span id="filters">
+          <button class="btn small ghost active" data-filter="all">همه</button>
+          <button class="btn small ghost" data-filter="pending">در انتظار</button>
+          <button class="btn small ghost" data-filter="approved">تایید شده</button>
+          <button class="btn small ghost" data-filter="rejected">رد شده</button>
+        </span>
+        <input id="search" placeholder="جستجو...">
+        <button class="btn small ghost" id="refreshBtn">↻ بروزرسانی</button>
+        <button class="btn small ghost" id="csvBtn">خروجی CSV</button>
+      </div>
+
+      <div class="items" id="items"></div>
+    </div>
+  </div>
+  <div class="toast" id="toast"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/background.js"></script>
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>
